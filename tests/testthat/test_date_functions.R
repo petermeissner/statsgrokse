@@ -1,30 +1,30 @@
-context("wp_check_date_inputs()")
+context("check_date_inputs()")
 # ----------------------------------------------------------
 
-test_that("wp_check_date_inputs() works as expected", {
+test_that("check_date_inputs() works as expected", {
   expect_error(
-    wp_check_date_inputs()
+    check_date_inputs()
     )
   expect_error(
-    wp_check_date_inputs(1,1)
+    check_date_inputs(1,1)
     )
   expect_true({
-    wp_check_date_inputs(from="2001-01-01", to="2001-01-02"); TRUE;
+    check_date_inputs(from="2001-01-01", to="2001-01-02"); TRUE;
   })
   expect_true({
-    wp_check_date_inputs(from="2000-01-01", to="2001-01-01"); TRUE;
+    check_date_inputs(from="2000-01-01", to="2001-01-01"); TRUE;
   })
   expect_error({
-    wp_check_date_inputs(from="2001-01-01", to="2000-01-01"); TRUE;
+    check_date_inputs(from="2001-01-01", to="2000-01-01"); TRUE;
   })
   expect_true({
-    wp_check_date_inputs(from="2011-01-01", to="2011-01-01"); TRUE;
+    check_date_inputs(from="2011-01-01", to="2011-01-01"); TRUE;
   })
   expect_true({
-    wp_check_date_inputs(from="2010-01-01", to="2011-01-01"); TRUE;
+    check_date_inputs(from="2010-01-01", to="2011-01-01"); TRUE;
   })
   expect_error({
-    wp_check_date_inputs(from="2011-01-01", to="2010-01-01")
+    check_date_inputs(from="2011-01-01", to="2010-01-01")
   })
 })
 
@@ -36,15 +36,15 @@ context("wp_date()")
 date_na   <- c("", "01-01", "2000-01", "2015-02-29")
 date_num  <- -10:10
 library(stringr)
-date_char <- 
+date_char <-
   apply(
     expand.grid(
-      year   = 2004:2006, 
-      months = str_pad(1:3, 2, "left", "0"), 
+      year   = 2004:2006,
+      months = str_pad(1:3, 2, "left", "0"),
       days   = str_pad(1:5, 2, "left", "0")
     ),
-    1, 
-    paste0, 
+    1,
+    paste0,
     collapse="-"
   )
 
@@ -70,58 +70,58 @@ test_that("wp_date() works as expected", {
     )
   expect_error(
     wp_date()
-    ) 
-  
-  expect_true(  
-    all(is.na(wp_date(date_na))) 
     )
-  expect_true(  
-    all(wp_date(date_num, origin=0)== -10:10) 
+
+  expect_true(
+    all(is.na(wp_date(date_na)))
     )
-  expect_is(  
+  expect_true(
+    all(wp_date(date_num, origin=0)== -10:10)
+    )
+  expect_is(
     wp_date(date_char, origin=0) , "Date"
     )
-  
-  expect_true( 
-    !is.na(wp_date("2012-02-29")) 
-    )
-  
+
   expect_true(
-    suppressWarnings(                
+    !is.na(wp_date("2012-02-29"))
+    )
+
+  expect_true(
+    suppressWarnings(
       wp_date(as.numeric(as.Date("2015-01-01"))) == "2015-01-01"
       )
     )
   expect_true(
-    suppressWarnings(                
-      wp_date(16436) == "2015-01-01"              
+    suppressWarnings(
+      wp_date(16436) == "2015-01-01"
       )
     )
   expect_true(
    all( wp_date(date_char, format = "%Y-%m-%d") == wp_date(date_char) )
   )
-  
+
   expect_null(
     wp_date.default(NULL)
   )
   expect_null(
     wp_date(NULL)
   )
-  
+
   expect_is(
     wp_date(date_logical), "Date"
   )
-  
+
   expect_error(
     wp_date(TRUE)
   )
-  
+
   expect_true(
     wp_date(as.Date(0, origin="1970-01-01"))=="1970-01-01"
   )
-  
+
   expect_is(wp_date(date_factor), "Date")
   expect_true(wp_date(date_factor)=="2012-01-01")
-  
+
   expect_true( wp_day(as.POSIXlt("2012-02-29")) == 29 )
   expect_null( wp_day(NULL) )
 })

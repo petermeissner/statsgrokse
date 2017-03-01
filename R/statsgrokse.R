@@ -41,8 +41,8 @@ statsgrokse <-
   stopifnot( all( !is.na(page) ), all( !is.na(lang) ) )
 
   # check dates
-  from <- wp_check_date_inputs(from, to)$from
-  to   <- wp_check_date_inputs(from, to)$to
+  from <- check_date_inputs(from, to)$from
+  to   <- check_date_inputs(from, to)$to
 
   # check page
   page <- stringr::str_replace( page, "^.", substring(toupper(page),1,1) )
@@ -71,4 +71,54 @@ statsgrokse <-
 
 
 
+#' function for getting data (download + extraction)
+#'
+#'
+#' @param urls urls to be downloeded
+
+wp_get_data <- function(urls){
+
+  tmp <- list()
+
+  for ( i in seq_along(urls) ){
+    url       <- urls[i]
+    json      <- wp_download_data(url, wait = 1)
+    tmp[[i]]  <- wp_jsons_to_df(json, basename(url) )
+  }
+
+  # combine data
+  res           <- do.call(rbind, tmp)
+  rownames(res) <- NULL
+
+  # return
+  return(res)
+}
+
+
+#' function downloading prepared URLs
+#'
+#' @param urls a vector of urls to be downloaded
+#' @param wait the time to wait in seconds before downloading the next chunk (default=1)
+#'
+
+wp_download_data <- function(urls, wait=1){
+  # make http requests
+  jsons <- list()
+  # looping
+  for(i in seq_along(urls)){
+    jsons <- c(
+      jsons,
+      try(
+        html( #### todo: make dependency explicit
+          urls[i],
+          httr::user_agent(wp_http_header()$`user-agent`)
+        )
+      )
+    )
+    message(urls[i]) #### todo:  wrap into verbose option
+    Sys.sleep(wait)
+  }
+  # return
+  return(jsons)
+}
 

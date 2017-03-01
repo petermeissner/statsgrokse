@@ -7,7 +7,7 @@ json_good_list <- list(json_good, json_good)
 json_bad       <- "{{ {{  {!'§$%%§%' rubbish"
 json_bad_list  <- list(json_good, "{{ {{  {!'§$%%§%' rubbish", json_good)
 
-test_that("wp_check_date_inputs() works as expected", {
+test_that("wp_jsons_to_df() works as expected", {
   expect_error(wp_jsons_to_df())
   expect_is(
     wp_jsons_to_df(json_good, "testpage"),
@@ -18,7 +18,7 @@ test_that("wp_check_date_inputs() works as expected", {
     "data.frame"
     )
   expect_is(
-    wp_jsons_to_df(list(), "testpage"), 
+    wp_jsons_to_df(list(), "testpage"),
     "data.frame"
     )
   expect_warning(
@@ -36,7 +36,7 @@ context("wp_http_header()")
 test_that("wp_http_header() produces something", {
   expect_is(
     wp_http_header(),
-    "list")  
+    "list")
   expect_true(
     names(wp_http_header())=="user-agent"
     )
