@@ -5,8 +5,9 @@ Date: 2016-12-30
 Author: Peter Meissner [aut, cre], R Core Team [ctb]
 Maintainer: Peter Meissner <retep.meissner@gmail.com>
 Description: The 'http://stats.grok.se' server
-    provides data and an API for Wikipedia page view statistics prior to 2016.
-    This package provides R bindings to the API. 
+    provides data and an API for Wikipedia page view statistics prior from 
+    December 2007 up to January 2016. This package provides R bindings to the 
+    API. 
 License: GPL (>= 2)
 Depends:
     R (>= 3.0.0)
