@@ -31,17 +31,17 @@ test_that("wp_jsons_to_df() works as expected", {
 
 
 
-context("wp_http_header()")
+context("http_header()")
 
-test_that("wp_http_header() produces something", {
+test_that("http_header() produces something", {
   expect_is(
-    wp_http_header(),
+    http_header(),
     "list")
   expect_true(
-    names(wp_http_header())=="user-agent"
+    names(http_header())=="user-agent"
     )
   expect_true(
-    length(wp_http_header())==1
+    length(http_header())==1
   )
 })
 

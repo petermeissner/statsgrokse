@@ -1,21 +1,4 @@
 
-#' function to convert character vectors to UTF-8 encoding
-#'
-#' @param x the vector to be converted
-toUTF8 <-
-  function(x){
-    worker <- function(x){
-      iconv(x,
-            from = ifelse( Encoding(x)=="unknown", "",Encoding(x) ),
-            to = "UTF-8")
-    }
-    unlist(lapply(x, worker))
-  }
-
-
-
-
-
 #' function downloading content
 #' @param url url to content
 #' @param ... further arguments passed trough to httr::GET()
@@ -28,15 +11,12 @@ html <- function(url, ...){
 }
 
 
-
-
-
 #' function for pasting together the HTTP user-agent field
 #'
 #' @export
 
 
-wp_http_header <- function(){
+http_header <- function(){
   list(
     'user-agent' =
       paste0(
@@ -88,11 +68,7 @@ expand_ts_v <-
 
 
 
-#' Helper function for \code{wp_trend()}
-#'
-#' Function that checks if the time span given by from and to (passed down from
-#' wp_trend) are complying with logical constraints: from not prior to first
-#' available data; to not past today; to not prior to from
+#' Helper function for statsgrokse()
 #'
 #' @param from first date of timespan to check
 #' @param to second date of timespan to check

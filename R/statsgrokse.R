@@ -31,39 +31,24 @@
 statsgrokse <-
   function(
     page ,
-    from        = prev_month_start(),
-    to          = prev_month_end(),
-    lang        = "en"
+    from        = "2015-01-01",
+    to          = "2015-02-01",
+    lang        = "en",
+    warn        = TRUE
 ){
-
-  # input check
-  stopifnot( length(page)==length(lang) | length(lang)==1 )
-  stopifnot( all( !is.na(page) ), all( !is.na(lang) ) )
 
   # check dates
   from <- check_date_inputs(from, to)$from
   to   <- check_date_inputs(from, to)$to
 
   # check page
-  page <- stringr::str_replace( page, "^.", substring(toupper(page),1,1) )
-  page <- stringr::str_replace( page, " ", "_" )
-  for( i in seq_along(page) ){
-    if ( !stringr::str_detect( page[i], "%" ) ){
-      page[i] <- utils::URLencode(page[i])
-    }
-  }
+  page <- check_page_inputs(page)
 
-  # prepare URLs
-  urls <-
-    wp_prepare_urls(
-      page = page,
-      from = from,
-      to   = to,
-      lang = lang
-    )
+  # expand combinations
+  df <- data.frame(page, from, to, lang, stringsAsFactors = FALSE)
 
   # download data and extract data
-  res <- wp_get_data(urls)
+  res <- get_data(df)
 
   # return
   return(res)
@@ -71,12 +56,14 @@ statsgrokse <-
 
 
 
+
 #' function for getting data (download + extraction)
 #'
-#'
-#' @param urls urls to be downloeded
+#' @param df data.frame defining with columns page, from, to, lang
 
-wp_get_data <- function(urls){
+get_data <- function(df){
+
+  urls <- prepare_urls(df)
 
   tmp <- list()
 
@@ -95,6 +82,34 @@ wp_get_data <- function(urls){
 }
 
 
+
+
+#' helperp function for statsgrokse() that checks and corrects page input
+#'
+#' @param page the page titles to be checked
+#'
+check_page_inputs <- function(page){
+
+  # make first letter uppercase
+  page <- stringr::str_replace( page, "^.", substring(toupper(page),1,1) )
+
+  # make spaces undescore instead
+  page <- stringr::str_replace( page, " ", "_" )
+
+  # check if url encoding is necessary
+  for( i in seq_along(page) ){
+    if ( !stringr::str_detect( page[i], "%" ) ){
+      page[i] <- utils::URLencode(page[i])
+    }
+  }
+
+  # return
+  return(page)
+}
+
+
+
+
 #' function downloading prepared URLs
 #'
 #' @param urls a vector of urls to be downloaded
@@ -111,7 +126,7 @@ wp_download_data <- function(urls, wait=1){
       try(
         html( #### todo: make dependency explicit
           urls[i],
-          httr::user_agent(wp_http_header()$`user-agent`)
+          httr::user_agent(http_header()$`user-agent`)
         )
       )
     )
