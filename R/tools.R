@@ -49,8 +49,8 @@ wp_http_header <- function(){
 
 
 
-#' Helper function for wp_trend that transforms a time span into a series of
-#' months
+#' Helper function for statsgrokse() that transforms a time span into a series
+#' of months
 #'
 #' @param from start of timespan
 #' @param to end of timespan
@@ -58,13 +58,26 @@ wp_http_header <- function(){
 #'   \code{"month"}, \code{"year"}
 #'
 
-wp_expand_ts <- function(from, to, by){
+expand_ts <- function(from, to, by="day"){
   dates <- seq(wp_date(from), wp_date(to), by)
   return(dates)
 }
 
 
+#' vectorized version of expand_ts()
+#'
+#' @inheritParams expand_ts
+#'
+#' @rdname exapnd_ts
+#'
 
+expand_ts_v <-
+  Vectorize(
+    FUN            = expand_ts,
+    vectorize.args = c("from", "to"),
+    USE.NAMES      = FALSE,
+    SIMPLIFY       = FALSE
+  )
 
 
 
