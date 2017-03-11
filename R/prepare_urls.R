@@ -15,8 +15,8 @@ prepare_urls <- function(df){
   for( i in seq_len(nrow(df)) ){
     request_data[[i]] <-
       data.frame(
-        date             = timeframe[[i]],
         lang             = df$lang[i],
+        date             = timeframe[[i]],
         page             = df$page[i],
         stringsAsFactors = FALSE
       )
