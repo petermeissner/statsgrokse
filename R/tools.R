@@ -110,7 +110,7 @@ check_date_inputs <- function(from, to){
 
 
 
-wp_jsons_to_df <- function(wp_json, page){
+jsons_to_df <- function(wp_json, page){
   # function doing the extraction work
   worker <- function(wp_json, page){
     tmp <-
@@ -119,7 +119,7 @@ wp_jsons_to_df <- function(wp_json, page){
           jsonlite::fromJSON(wp_json)
         },
         error=function(e){
-          warning("[wp_jsons_to_df()]\nCould not extract data from server response. Data for one month will be missing.")
+          warning("[jsons_to_df()]\nCould not extract data from server response. Data for one month will be missing.")
           message("\ndata from server was: ", wp_json, "\n")
           data.frame()
         }

@@ -69,8 +69,8 @@ get_data <- function(df){
 
   for ( i in seq_along(urls) ){
     url       <- urls[i]
-    json      <- wp_download_data(url, wait = 1)
-    tmp[[i]]  <- wp_jsons_to_df(json, basename(url) )
+    json      <- download_data(url, wait = 1)
+    tmp[[i]]  <- jsons_to_df(json, basename(url) )
   }
 
   # combine data
@@ -116,7 +116,7 @@ check_page_inputs <- function(page){
 #' @param wait the time to wait in seconds before downloading the next chunk (default=1)
 #'
 
-wp_download_data <- function(urls, wait=1){
+download_data <- function(urls, wait=1){
   # make http requests
   jsons <- list()
   # looping
