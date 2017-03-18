@@ -1,3 +1,3 @@
 library(testthat)
-test_check("wikipediatrend")
+test_check("statsgrokse")
 
