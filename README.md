@@ -11,7 +11,7 @@ R API Binding to Stats.grok.se Server
 
 **Version**
 
-0.1.0.90000 ( 2017-03-18 15:37:49 )
+0.1.0.90000 ( 2017-03-18 15:43:54 )
 
 **Description**
 
@@ -44,13 +44,8 @@ install.packages("statsgrokse")
 Latest development version from Github:
 
 ``` r
-devtools::install_github("petermeissner/wikipediatrend")
+devtools::install_github("petermeissner/statsgrokse")
 ```
-
-Purpose
-=======
-
-The statsgrokse package is a pure API binding to the stats.grok.se server providing Wikipedia page access statistics from start of 2008 up the very beginning of 2015.
 
 Usage
 =====

@@ -1,13 +1,12 @@
 Package: statsgrokse
 Title: R API Binding to Stats.grok.se Server
-Version: 0.1.0.90000
+Version: 0.1.1.90000
 Date: 2017-03-18
 Author: Peter Meissner [aut, cre], R Core Team [ctb]
 Maintainer: Peter Meissner <retep.meissner@gmail.com>
 Description: The 'http://stats.grok.se' server
     provides data and an API for Wikipedia page view statistics prior from 
-    December 2007 up to January 2016. This package provides R bindings to the 
-    API. 
+    2008 up to 2015. This package provides R bindings to the API. 
 License: GPL (>= 2)
 Depends:
     R (>= 3.0.0)

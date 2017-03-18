@@ -4,12 +4,14 @@
 \alias{download_data}
 \title{function downloading prepared URLs}
 \usage{
-download_data(urls, wait = 1)
+download_data(urls, wait = 1, verbose = TRUE)
 }
 \arguments{
 \item{urls}{a vector of urls to be downloaded}
 
 \item{wait}{the time to wait in seconds before downloading the next chunk (default=1)}
+
+\item{verbose}{should function report freely on what it is doing or not}
 }
 \description{
 function downloading prepared URLs

@@ -4,10 +4,12 @@
 \alias{get_data}
 \title{function for getting data (download + extraction)}
 \usage{
-get_data(df)
+get_data(df, verbose = TRUE)
 }
 \arguments{
 \item{df}{data.frame defining with columns page, from, to, lang}
+
+\item{verbose}{should function report freely on what it is doing or not}
 }
 \description{
 function for getting data (download + extraction)

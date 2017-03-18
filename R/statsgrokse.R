@@ -26,6 +26,8 @@
 #' @param warn should the function warn if it does, e.g. overwrite parameter
 #'   inputs to make things work or just do it and not erport
 #'
+#' @param verbose should function report freely on what it is doing or not
+#'
 #' @export
 
 statsgrokse <-
@@ -34,6 +36,7 @@ statsgrokse <-
     from        = "2015-01-01",
     to          = "2015-02-01",
     lang        = "en",
+    verbose     = TRUE,
     warn        = TRUE
 ){
 
@@ -48,7 +51,7 @@ statsgrokse <-
   df <- data.frame(page, from, to, lang, stringsAsFactors = FALSE)
 
   # download data and extract data
-  res <- get_data(df)
+  res <- get_data(df, verbose=verbose)
 
   # return
   return(res)
@@ -60,8 +63,9 @@ statsgrokse <-
 #' function for getting data (download + extraction)
 #'
 #' @param df data.frame defining with columns page, from, to, lang
+#' @inheritParams statsgrokse
 
-get_data <- function(df){
+get_data <- function(df, verbose=TRUE){
 
   urls <- prepare_urls(df)
 
@@ -69,7 +73,7 @@ get_data <- function(df){
 
   for ( i in seq_along(urls) ){
     url       <- urls[i]
-    json      <- download_data(url, wait = 1)
+    json      <- download_data(url, wait = 1, verbose = verbose)
     tmp[[i]]  <- jsons_to_df(json, basename(url) )
   }
 
@@ -114,9 +118,9 @@ check_page_inputs <- function(page){
 #'
 #' @param urls a vector of urls to be downloaded
 #' @param wait the time to wait in seconds before downloading the next chunk (default=1)
-#'
+#' @inheritParams statsgrokse
 
-download_data <- function(urls, wait=1){
+download_data <- function(urls, wait=1, verbose=TRUE){
   # make http requests
   jsons <- list()
   # looping
@@ -130,7 +134,9 @@ download_data <- function(urls, wait=1){
         )
       )
     )
-    message(urls[i]) #### todo:  wrap into verbose option
+    if(verbose){
+      message(urls[i])
+    }
     Sys.sleep(wait)
   }
   # return

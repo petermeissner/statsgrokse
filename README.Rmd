@@ -128,10 +128,6 @@ devtools::install_github("petermeissner/statsgrokse")
 
 
 
-# Purpose
-
-The statsgrokse package is a pure API binding to the stats.grok.se server providing Wikipedia page access statistics from start of 2008 up the very beginning of 2015. 
-
 
 
 # Usage

@@ -5,7 +5,7 @@
 \title{Function for getting access statistics for wikipedia pages from stats.grok.se}
 \usage{
 statsgrokse(page, from = "2015-01-01", to = "2015-02-01", lang = "en",
-  warn = TRUE)
+  verbose = TRUE, warn = TRUE)
 }
 \arguments{
 \item{page}{The name of the Wikipedia page as to be found in the URL to the
@@ -29,6 +29,8 @@ statistics are to be used: e.g. \code{"en"} for the English version found
 at https://en.wikipedia.org, \code{"de"} for the German version found at
 https://de.wikipedia.org or perhaps \code{"als"} for the Alemannic dialect
 found under https://als.wikipedia.org/.}
+
+\item{verbose}{should function report freely on what it is doing or not}
 
 \item{warn}{should the function warn if it does, e.g. overwrite parameter
 inputs to make things work or just do it and not erport}
