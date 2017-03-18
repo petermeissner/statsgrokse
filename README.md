@@ -7,11 +7,11 @@ R API Binding to Stats.grok.se Server
 
 <a href="https://travis-ci.org/petermeissner/statsgrokse"> <img src="https://api.travis-ci.org/petermeissner/statsgrokse.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=statsgrokse"> <img src="http://www.r-pkg.org/badges/version/statsgrokse"> </a> <img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse"> <img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
 
-*lines of R code:* 298, *lines of test code:* 180
+*lines of R code:* 322, *lines of test code:* 180
 
 **Version**
 
-0.1.0.90000 ( 2017-03-12 20:44:12 )
+0.1.0.90000 ( 2017-03-18 15:37:49 )
 
 **Description**
 

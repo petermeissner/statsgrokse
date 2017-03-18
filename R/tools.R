@@ -72,10 +72,11 @@ expand_ts_v <-
 #'
 #' @param from first date of timespan to check
 #' @param to second date of timespan to check
-#'
+#' @param warn should the function warn if it does, e.g. overwrite parameter
+#'   inputs to make things work or just do it and not erport
 #'
 
-check_date_inputs <- function(from, to){
+check_date_inputs <- function(from, to, warn = TRUE){
   from <- as.character(from)
   to   <- as.character(to)
   # could it be parsed?
@@ -91,16 +92,41 @@ check_date_inputs <- function(from, to){
   }
   # to small a value (no data before 2007)
   if ( wp_date(from) < wp_date("2007-12-01")  ) {
+    if(warn){
+      warning("statsgrokse(), check_date_inputs(): there is no data before 2007-12-01, from parameter will be overwritten accordingly")
+    }
     from <- wp_date("2007-12-01")
   }
   if ( wp_date(to) < wp_date("2007-12-01")  ) {
+    if(warn){
+      warning("statsgrokse(), check_date_inputs(): there is no data before 2007-12-01, to parameter will be overwritten accordingly")
+    }
     to <- wp_date("2007-12-01")
+  }
+  # to large a value (no data after 2015-12)
+  if ( wp_date(from) > wp_date("2015-12-31")  ) {
+    if(warn){
+      warning("statsgrokse(), check_date_inputs(): there is no data beyond 2015-12-31, from parameter will be overwritten accordingly")
+    }
+    from <- wp_date("2015-12-31")
+  }
+  if ( wp_date(to) > wp_date("2015-12-31")  ) {
+    if(warn){
+      warning("statsgrokse(), check_date_inputs(): there is no data beyond 2015-12-31, to parameter will be overwritten accordingly")
+    }
+    to <- wp_date("2015-12-31")
   }
   # to large a value (data beyond today)
   if ( wp_date(to) > Sys.Date()  ) {
+    if(warn){
+      warning("statsgrokse(), check_date_inputs(): there is no data beyond today, to parameter will be overwritten accordingly")
+    }
     to <- Sys.Date()
   }
   if ( wp_date(from) > Sys.Date()  ) {
+    if(warn){
+      warning("statsgrokse(), check_date_inputs(): there is no data beyond today, from parameter will be overwritten accordingly")
+    }
     from <- Sys.Date()
   }
   return( list(from=from, to=to) )

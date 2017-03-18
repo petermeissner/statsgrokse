@@ -23,8 +23,8 @@
 #'   character. If the option is of type character it should be in the form of
 #'   yyyy-mm-dd.
 #'
-#'
-#'
+#' @param warn should the function warn if it does, e.g. overwrite parameter
+#'   inputs to make things work or just do it and not erport
 #'
 #' @export
 
