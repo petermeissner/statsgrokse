@@ -5,13 +5,13 @@ R API Binding to Stats.grok.se Server
 
 **Status**
 
-<a href="https://travis-ci.org/petermeissner/statsgrokse"> <img src="https://api.travis-ci.org/petermeissner/statsgrokse.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=statsgrokse"> <img src="http://www.r-pkg.org/badges/version/statsgrokse"> </a> [![Development version](https://img.shields.io/badge/github-0.1.2.9000-orange.svg)](https://github.com/petermeissner/statsgrokse) [![codecov](https://codecov.io/gh/petermeissner/statsgrokse/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/statsgrokse/tree/master/R) <img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse"> <img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
+<a href="https://travis-ci.org/petermeissner/statsgrokse"> <img src="https://api.travis-ci.org/petermeissner/statsgrokse.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=statsgrokse"> <img src="http://www.r-pkg.org/badges/version/statsgrokse"> </a> [![Development version](https://img.shields.io/badge/github-0.1.3.9000-orange.svg)](https://github.com/petermeissner/statsgrokse) [![codecov](https://codecov.io/gh/petermeissner/statsgrokse/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/statsgrokse/tree/master/R) <img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse"> <img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
 
-*lines of R code:* 313, *lines of test code:* 184
+*lines of R code:* 313, *lines of test code:* 199
 
 **Last change on code base**
 
-2017-03-20 08:24:27
+2017-03-20 09:40:48
 
 **Description**
 
@@ -60,19 +60,15 @@ library(statsgrokse)
 
 pageviews <-   
   statsgrokse(
-    page = 
-      c(
-        "Application_programming_interface", 
-        "Programmierschnittstelle"
-      ), 
-    from = "2014-12-01", 
-    to   = "2015-01-06", 
+    page = "Edward_Snowden", 
+    from = "2013-06-01", 
+    to   = "2013-07-31", 
     lang = c("en","de")
   )
-## http://stats.grok.se/json/en/201412/Application_programming_interface
-## http://stats.grok.se/json/en/201501/Application_programming_interface
-## http://stats.grok.se/json/de/201412/Programmierschnittstelle
-## http://stats.grok.se/json/de/201501/Programmierschnittstelle
+## http://stats.grok.se/json/en/201306/Edward_Snowden
+## http://stats.grok.se/json/en/201307/Edward_Snowden
+## http://stats.grok.se/json/de/201306/Edward_Snowden
+## http://stats.grok.se/json/de/201307/Edward_Snowden
 ```
 
 plotting data
@@ -80,12 +76,14 @@ plotting data
 
 ``` r
 pageviews <- pageviews[order(pageviews$lang, pageviews$date), ]
+
 par(mfrow=c(1,2), oma = c(0, 0, 1, 0))
+
 with(
   pageviews,
   {
-    plot(date[lang=="en"], count[lang=="en"], type="l", xlab = "date")
-    plot(date[lang=="de"], count[lang=="de"], type="l", xlab = "date")
+    plot(date[lang=="en"], count[lang=="en"], type="l", xlab = "date", col="#183691")
+    plot(date[lang=="de"], count[lang=="de"], type="l", xlab = "date", col="#183691")
   }
 )
 mtext("API Pageviews", line=-2, outer = TRUE, cex = 1.5)
@@ -94,5 +92,6 @@ mtext("API Pageviews", line=-2, outer = TRUE, cex = 1.5)
 ![](README-unnamed-chunk-14-1.png)
 
 ``` r
+
 par(mfrow=c(1,1), oma=c(0,0,0,0))
 ```

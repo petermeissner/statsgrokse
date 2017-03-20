@@ -140,13 +140,9 @@ library(statsgrokse)
 
 pageviews <-   
   statsgrokse(
-    page = 
-      c(
-        "Application_programming_interface", 
-        "Programmierschnittstelle"
-      ), 
-    from = "2014-12-01", 
-    to   = "2015-01-06", 
+    page = "Edward_Snowden", 
+    from = "2013-06-01", 
+    to   = "2013-07-31", 
     lang = c("en","de")
   )
 ```
@@ -156,15 +152,18 @@ pageviews <-
 
 ```{r, fig.width=10, fig.retina=TRUE, message=FALSE}
 pageviews <- pageviews[order(pageviews$lang, pageviews$date), ]
+
 par(mfrow=c(1,2), oma = c(0, 0, 1, 0))
+
 with(
   pageviews,
   {
-    plot(date[lang=="en"], count[lang=="en"], type="l", xlab = "date")
-    plot(date[lang=="de"], count[lang=="de"], type="l", xlab = "date")
+    plot(date[lang=="en"], count[lang=="en"], type="l", xlab = "date", col="#183691")
+    plot(date[lang=="de"], count[lang=="de"], type="l", xlab = "date", col="#183691")
   }
 )
 mtext("API Pageviews", line=-2, outer = TRUE, cex = 1.5)
+
 par(mfrow=c(1,1), oma=c(0,0,0,0))
 ```
 
