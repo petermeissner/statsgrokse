@@ -14,4 +14,3 @@ get_data(df, verbose = TRUE)
 \description{
 function for getting data (download + extraction)
 }
-

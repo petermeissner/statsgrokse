@@ -12,4 +12,3 @@ check_page_inputs(page)
 \description{
 helperp function for statsgrokse() that checks and corrects page input
 }
-

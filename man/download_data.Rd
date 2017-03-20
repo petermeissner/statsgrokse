@@ -16,4 +16,3 @@ download_data(urls, wait = 1, verbose = TRUE)
 \description{
 function downloading prepared URLs
 }
-

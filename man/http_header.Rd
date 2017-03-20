@@ -9,4 +9,3 @@ http_header()
 \description{
 function for pasting together the HTTP user-agent field
 }
-

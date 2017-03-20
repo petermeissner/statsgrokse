@@ -17,4 +17,3 @@ expand_ts_v(from, to, by = "day")
 \description{
 vectorized version of expand_ts()
 }
-

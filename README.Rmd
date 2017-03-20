@@ -47,7 +47,6 @@ length.cpp   <- length(grep("(^\\s*$)|(^\\s*#)|(^\\s*//)", lines.cpp,  value = T
 <a href="https://cran.r-project.org/package=statsgrokse">
 <img src="http://www.r-pkg.org/badges/version/statsgrokse">
 </a>
-[![Development version](https://img.shields.io/badge/github-`r tmp$Version`-orange.svg)](https://github.com/petermeissner/statsgrokse)
 [![codecov](https://codecov.io/gh/petermeissner/statsgrokse/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/statsgrokse/tree/master/R)
 <img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse">
 <img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
@@ -57,7 +56,7 @@ length.cpp   <- length(grep("(^\\s*$)|(^\\s*#)|(^\\s*//)", lines.cpp,  value = T
 
 
 
-**Last change on code base**
+**Development version**
 
 ```{r, include=FALSE}
 source_files <- 
@@ -74,7 +73,9 @@ last_change <-
 
 
 ```{r, results='asis', echo=FALSE}
-cat(last_change)
+cat(tmp$Version)
+cat(" - ")
+cat(stringr::str_replace(last_change, " ", " / "))
 ```
 
 **Description**

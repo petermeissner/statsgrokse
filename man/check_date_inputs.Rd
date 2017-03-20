@@ -17,4 +17,3 @@ inputs to make things work or just do it and not erport}
 \description{
 Helper function for statsgrokse()
 }
-

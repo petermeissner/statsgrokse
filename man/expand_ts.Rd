@@ -19,4 +19,3 @@ expand_ts(from, to, by = "day")
 Helper function for statsgrokse() that transforms a time span into a series
 of months
 }
-

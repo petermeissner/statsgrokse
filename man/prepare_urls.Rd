@@ -12,4 +12,3 @@ prepare_urls(df)
 \description{
 function preparing URLs for downlaod
 }
-
