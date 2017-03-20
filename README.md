@@ -11,11 +11,11 @@ R API Binding to Stats.grok.se Server
 
 **Development version**
 
-0.1.3.9000 - 2017-03-20 / 09:40:48
+0.1.3 - 2017-03-20 / 09:40:48
 
 **Description**
 
-The '<http://stats.grok.se>' server provides data and an API for Wikipedia page view statistics from 2008 up to 2015. This package provides R bindings to the API.
+The '<http://stats.grok.se>' server provides data and an 'API' for Wikipedia page view statistics from 2008 up to 2015. This package provides R bindings to the 'API'.
 
 **License**
 
