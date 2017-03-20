@@ -147,27 +147,30 @@ jsons_to_df <- function(wp_json, page){
         error=function(e){
           warning("[jsons_to_df()]\nCould not extract data from server response. Data for one month will be missing.")
           message("\ndata from server was: ", wp_json, "\n")
-          data.frame()
+          data.frame(stringsAsFactors = FALSE)
         }
       )
     # no data? OR some data?
     if( length(tmp$daily_views)==0 ){
-      return( data.frame() )
+      return( data.frame(stringsAsFactors = FALSE) )
     }else{
-      tmp_data <- data.frame( date    = wp_date( names(tmp$daily_views) ),
-                              count   = unlist(tmp$daily_views),
-                              lang    = tmp$project,
-                              page    = page,
-                              rank    = tmp$rank,
-                              month   = tmp$month,
-                              title   = tmp$title,
-                              stringsAsFactors=F)
+      tmp_data <-
+        data.frame(
+          date             = wp_date( names(tmp$daily_views) ),
+          count            = unlist(tmp$daily_views),
+          lang             = tmp$project,
+          page             = page,
+          rank             = tmp$rank,
+          month            = tmp$month,
+          title            = tmp$title,
+          stringsAsFactors = FALSE
+        )
       return(tmp_data)
     }
   }
   # case of no data
   if( length(wp_json)==0 ){
-    res <- data.frame()
+    res <- data.frame(stringsAsFactors = FALSE)
     return(unique(res))
   }
   # case of only one json
