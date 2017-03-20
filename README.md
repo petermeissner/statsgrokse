@@ -5,17 +5,17 @@ R API Binding to Stats.grok.se Server
 
 **Status**
 
-<a href="https://travis-ci.org/petermeissner/statsgrokse"> <img src="https://api.travis-ci.org/petermeissner/statsgrokse.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=statsgrokse"> <img src="http://www.r-pkg.org/badges/version/statsgrokse"> </a> [![codecov](https://codecov.io/gh/petermeissner/statsgrokse/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/statsgrokse/tree/master/R) <img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse"> <img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
+<a href="https://travis-ci.org/petermeissner/statsgrokse"> <img src="https://api.travis-ci.org/petermeissner/statsgrokse.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=statsgrokse"> <img src="http://www.r-pkg.org/badges/version/statsgrokse"> </a> [![Development version](https://img.shields.io/badge/github-0.1.2.9000-orange.svg)](https://github.com/petermeissner/statsgrokse) [![codecov](https://codecov.io/gh/petermeissner/statsgrokse/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/statsgrokse/tree/master/R) <img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse"> <img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
 
-*lines of R code:* 325, *lines of test code:* 180
+*lines of R code:* 313, *lines of test code:* 184
 
-**Version**
+**Last change on code base**
 
-0.1.2.90000 ( 2017-03-18 16:08:53 )
+2017-03-20 08:24:27
 
 **Description**
 
-The '<http://stats.grok.se>' server provides data and an API for Wikipedia page view statistics prior from 2008 up to 2015. This package provides R bindings to the API.
+The '<http://stats.grok.se>' server provides data and an API for Wikipedia page view statistics from 2008 up to 2015. This package provides R bindings to the API.
 
 **License**
 

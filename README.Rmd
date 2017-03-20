@@ -23,24 +23,6 @@ cat("#", tmp$Title)
 ```
 
 
-**Status**
-
-
-
-
-<a href="https://travis-ci.org/petermeissner/statsgrokse">
-<img src="https://api.travis-ci.org/petermeissner/statsgrokse.svg?branch=master">
-<a/>
-<a href="https://cran.r-project.org/package=statsgrokse">
-<img src="http://www.r-pkg.org/badges/version/statsgrokse">
-</a>
-[![codecov](https://codecov.io/gh/petermeissner/statsgrokse/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/statsgrokse/tree/master/R)
-<img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse">
-<img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
-
-
-
-
 
 ```{r, include=FALSE}
 filelist.R   <- list.files("R", recursive = TRUE, pattern="\\.R$", ignore.case = TRUE, full.names = TRUE)
@@ -55,11 +37,27 @@ length.cpp   <- length(grep("(^\\s*$)|(^\\s*#)|(^\\s*//)", lines.cpp,  value = T
 ```
 
 
+
+
+**Status**
+
+<a href="https://travis-ci.org/petermeissner/statsgrokse">
+<img src="https://api.travis-ci.org/petermeissner/statsgrokse.svg?branch=master">
+<a/>
+<a href="https://cran.r-project.org/package=statsgrokse">
+<img src="http://www.r-pkg.org/badges/version/statsgrokse">
+</a>
+[![Development version](https://img.shields.io/badge/github-`r tmp$Version`-orange.svg)](https://github.com/petermeissner/statsgrokse)
+[![codecov](https://codecov.io/gh/petermeissner/statsgrokse/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/statsgrokse/tree/master/R)
+<img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse">
+<img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
+
+
 *lines of R code:* `r length.R`, *lines of test code:* `r length.tests`
 
 
 
-**Version**
+**Last change on code base**
 
 ```{r, include=FALSE}
 source_files <- 
@@ -76,7 +74,7 @@ last_change <-
 
 
 ```{r, results='asis', echo=FALSE}
-cat(tmp$Version, "(",last_change,")")
+cat(last_change)
 ```
 
 **Description**
