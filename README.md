@@ -91,4 +91,4 @@ mtext("API Pageviews", line=-2, outer = TRUE, cex = 1.5)
 par(mfrow=c(1,1), oma=c(0,0,0,0))
 ```
 
-![codecov](README-plot_example_make-1.png)
+![codecov](https://raw.githubusercontent.com/petermeissner/statsgrokse/master/README-plot_example_make-1.png)
