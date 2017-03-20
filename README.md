@@ -11,7 +11,7 @@ R API Binding to Stats.grok.se Server
 
 **Development version**
 
-0.1.3 - 2017-03-20 / 18:16:37
+0.1.3 - 2017-03-20 / 19:07:06
 
 **Description**
 
@@ -87,11 +87,8 @@ with(
   }
 )
 mtext("API Pageviews", line=-2, outer = TRUE, cex = 1.5)
-```
-
-![](README-plot_example-1.png)
-
-``` r
 
 par(mfrow=c(1,1), oma=c(0,0,0,0))
 ```
+
+![codecov](README-plot_example_make-1.png)

@@ -151,7 +151,7 @@ pageviews <-
 
 ## plotting data
 
-```{r plot_example, fig.width=10, fig.retina=TRUE, message=FALSE}
+```{r plot_example_make, fig.width=10, fig.retina=TRUE, message=FALSE, include=FALSE}
 pageviews <- pageviews[order(pageviews$lang, pageviews$date), ]
 
 par(mfrow=c(1,2), oma = c(0, 0, 1, 0))
@@ -168,8 +168,24 @@ mtext("API Pageviews", line=-2, outer = TRUE, cex = 1.5)
 par(mfrow=c(1,1), oma=c(0,0,0,0))
 ```
 
+```{r plot_example, fig.width=10, fig.retina=TRUE, message=FALSE, eval=FALSE}
+pageviews <- pageviews[order(pageviews$lang, pageviews$date), ]
 
+par(mfrow=c(1,2), oma = c(0, 0, 1, 0))
 
+with(
+  pageviews,
+  {
+    plot(date[lang=="en"], count[lang=="en"], type="l", xlab = "date", col="#183691")
+    plot(date[lang=="de"], count[lang=="de"], type="l", xlab = "date", col="#183691")
+  }
+)
+mtext("API Pageviews", line=-2, outer = TRUE, cex = 1.5)
+
+par(mfrow=c(1,1), oma=c(0,0,0,0))
+```
+
+![codecov](https://raw.githubusercontent.com/petermeissner/statsgrokse/master/README-plot_example_make-1.png)
 
 
 
