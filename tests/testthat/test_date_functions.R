@@ -127,6 +127,11 @@ test_that("wp_date() works as expected", {
 
   expect_true( wp_day(as.POSIXlt("2012-02-29")) == 29 )
   expect_null( wp_day(NULL) )
+
+  expect_true(
+    wp_date( as.POSIXct("2017-03-19 23:20:00", tz="UTC") ) == "2017-03-19" &
+    wp_date( as.POSIXct("2017-03-20 0:20:00", tz="UTC") ) == "2017-03-20"
+  )
 })
 
 
