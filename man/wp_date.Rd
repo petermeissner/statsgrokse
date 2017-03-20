@@ -5,7 +5,6 @@
 \alias{wp_date.POSIXct}
 \alias{wp_date.POSIXlt}
 \alias{wp_date.character}
-\alias{wp_date.dates}
 \alias{wp_date.default}
 \alias{wp_date.factor}
 \alias{wp_date.numeric}
@@ -18,8 +17,6 @@ wp_date(x, ...)
 \method{wp_date}{default}(x, ...)
 
 \method{wp_date}{numeric}(x, origin, ...)
-
-\method{wp_date}{dates}(x, ...)
 
 \method{wp_date}{factor}(x, ...)
 
@@ -64,8 +61,6 @@ instead of killing itself with an error.
 origin is needed but not supplied isntead of breaking, \code{wp_date()}
 will raise a warning and proceed by assuming "1970-01-01" to be the origin
 instead of killing itself with an error.
-
-\item \code{dates}: same as \code{as.Date()}
 
 \item \code{factor}: same as \code{as.Date()}
 
