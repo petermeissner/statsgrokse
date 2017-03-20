@@ -34,6 +34,7 @@ cat("#", tmp$Title)
 <a href="https://cran.r-project.org/package=statsgrokse">
 <img src="http://www.r-pkg.org/badges/version/statsgrokse">
 </a>
+[![codecov](https://codecov.io/gh/petermeissner/statsgrokse/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/statsgrokse/tree/master/R)
 <img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse">
 <img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
 
@@ -155,7 +156,7 @@ pageviews <-
 
 ## plotting data
 
-```{r, fig.width=10, echo=FALSE, fig.retina=TRUE, message=FALSE}
+```{r, fig.width=10, fig.retina=TRUE, message=FALSE}
 pageviews <- pageviews[order(pageviews$lang, pageviews$date), ]
 par(mfrow=c(1,2), oma = c(0, 0, 1, 0))
 with(

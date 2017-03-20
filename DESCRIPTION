@@ -1,8 +1,23 @@
 Package: statsgrokse
 Title: R API Binding to Stats.grok.se Server
-Version: 0.1.1.90000
-Date: 2017-03-18
+Version: 0.1.2.90000
+Date: 2017-03-20
 Author: Peter Meissner [aut, cre], R Core Team [ctb]
+Authors@R: c(
+    person(
+      given  = "Peter", 
+      middle = NULL, 
+      family = "Meissner",
+      email  = "retep.meissner@gmail.com",
+      role   = c("aut", "cre")
+    ),
+    person(
+      family  = "R Core Team", 
+      role    = c("ctb"),
+      comment = "wp_date() generic and its methods are copies/adoptions from 
+      base-R versions of as.Date(). See ?wp_date for details."
+    )
+  )
 Maintainer: Peter Meissner <retep.meissner@gmail.com>
 Description: The 'http://stats.grok.se' server
     provides data and an API for Wikipedia page view statistics prior from 
@@ -21,6 +36,7 @@ Imports:
 Suggests:
     testthat,
     knitr
-BugReports: htps://github.com/petermeissner/statsgrokse/issues
+BugReports: https://github.com/petermeissner/statsgrokse/issues
+URL: https://github.com/petermeissner/statsgrokse
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
