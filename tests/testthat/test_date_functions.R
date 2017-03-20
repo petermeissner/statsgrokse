@@ -7,15 +7,19 @@ context("check_date_inputs()")
 test_that("check_date_inputs() works as expected", {
   expect_error(
     check_date_inputs()
-    )
+  )
   expect_error(
     check_date_inputs(1,1)
-    )
+  )
+  expect_error({
+    check_date_inputs(from="2011-01-01", to="2010-01-01")
+  })
+
   expect_true({
-    check_date_inputs(from="2001-01-01", to="2001-01-02"); TRUE;
+    check_date_inputs(from="2001-01-01", to="2001-01-02", warn=FALSE); TRUE;
   })
   expect_true({
-    check_date_inputs(from="2000-01-01", to="2001-01-01"); TRUE;
+    check_date_inputs(from="2000-01-01", to="2001-01-01", warn=FALSE); TRUE;
   })
   expect_error({
     check_date_inputs(from="2001-01-01", to="2000-01-01"); TRUE;
@@ -26,9 +30,17 @@ test_that("check_date_inputs() works as expected", {
   expect_true({
     check_date_inputs(from="2010-01-01", to="2011-01-01"); TRUE;
   })
-  expect_error({
-    check_date_inputs(from="2011-01-01", to="2010-01-01")
+
+  expect_warning({
+    check_date_inputs(from="2001-01-01", to="2001-01-02");
   })
+  expect_warning({
+    check_date_inputs(from="2000-01-01", to="2001-01-01");
+  })
+  expect_warning({
+    check_date_inputs(from="2017-01-01", to="2017-01-01");
+  })
+
 })
 
 

@@ -4,8 +4,7 @@
 \alias{statsgrokse}
 \title{Function for getting access statistics for wikipedia pages from stats.grok.se}
 \usage{
-statsgrokse(page, from = "2015-01-01", to = "2015-02-01", lang = "en",
-  verbose = TRUE, warn = TRUE)
+statsgrokse(page, from, to, lang = "en", verbose = TRUE, warn = TRUE)
 }
 \arguments{
 \item{page}{The name of the Wikipedia page as to be found in the URL to the

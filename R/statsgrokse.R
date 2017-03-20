@@ -32,9 +32,9 @@
 
 statsgrokse <-
   function(
-    page ,
-    from        = "2015-01-01",
-    to          = "2015-02-01",
+    page,
+    from,
+    to,
     lang        = "en",
     verbose     = TRUE,
     warn        = TRUE
