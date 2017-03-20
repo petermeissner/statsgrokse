@@ -7,11 +7,11 @@ R API Binding to Stats.grok.se Server
 
 <a href="https://travis-ci.org/petermeissner/statsgrokse"> <img src="https://api.travis-ci.org/petermeissner/statsgrokse.svg?branch=master"> <a/> <a href="https://cran.r-project.org/package=statsgrokse"> <img src="http://www.r-pkg.org/badges/version/statsgrokse"> </a> [![codecov](https://codecov.io/gh/petermeissner/statsgrokse/branch/master/graph/badge.svg)](https://codecov.io/gh/petermeissner/statsgrokse/tree/master/R) <img src="http://cranlogs.r-pkg.org/badges/grand-total/statsgrokse"> <img src="http://cranlogs.r-pkg.org/badges/statsgrokse">
 
-*lines of R code:* 313, *lines of test code:* 199
+*lines of R code:* 316, *lines of test code:* 199
 
 **Development version**
 
-0.1.3 - 2017-03-20 / 09:40:48
+0.1.3 - 2017-03-20 / 18:16:37
 
 **Description**
 
@@ -89,7 +89,7 @@ with(
 mtext("API Pageviews", line=-2, outer = TRUE, cex = 1.5)
 ```
 
-![](README-unnamed-chunk-14-1.png)
+![](README-plot_example-1.png)
 
 ``` r
 

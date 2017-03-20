@@ -151,7 +151,7 @@ pageviews <-
 
 ## plotting data
 
-```{r, fig.width=10, fig.retina=TRUE, message=FALSE}
+```{r plot_example, fig.width=10, fig.retina=TRUE, message=FALSE}
 pageviews <- pageviews[order(pageviews$lang, pageviews$date), ]
 
 par(mfrow=c(1,2), oma = c(0, 0, 1, 0))
