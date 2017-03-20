@@ -37,3 +37,15 @@ inputs to make things work or just do it and not erport}
 \description{
 Function for getting access statistics for wikipedia pages from stats.grok.se
 }
+\examples{
+\dontrun{
+library(statsgrokse)
+pageviews <-
+  statsgrokse(
+    page = "Edward_Snowden",
+    from = "2013-06-01",
+    to   = "2013-07-31",
+    lang = c("en","de")
+  )
+}
+}

@@ -29,6 +29,18 @@
 #' @param verbose should function report freely on what it is doing or not
 #'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' library(statsgrokse)
+#' pageviews <-
+#'   statsgrokse(
+#'     page = "Edward_Snowden",
+#'     from = "2013-06-01",
+#'     to   = "2013-07-31",
+#'     lang = c("en","de")
+#'   )
+#' }
 
 statsgrokse <-
   function(
