@@ -17,14 +17,11 @@
 
 ## CRAN comments
 
-We get
 
-Package has a VignetteBuilder field but no prebuilt vignette index.
-
-Pls fix
+please enclose the URL in <> rather than quotes for auto-linking.
 
 
---> I excluded VignetteBuilder field from DESCRIPTION (there is no vignette)
+--> done
 
 
 
