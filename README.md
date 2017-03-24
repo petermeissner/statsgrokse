@@ -11,7 +11,7 @@ R API Binding to Stats.grok.se Server
 
 **Development version**
 
-0.1.3 - 2017-03-20 / 19:07:06
+0.1.3 - 2017-03-22 / 21:09:01
 
 **Description**
 
@@ -91,4 +91,4 @@ mtext("API Pageviews", line=-2, outer = TRUE, cex = 1.5)
 par(mfrow=c(1,1), oma=c(0,0,0,0))
 ```
 
-![codecov](https://raw.githubusercontent.com/petermeissner/statsgrokse/master/README-plot_example_make-1.png)
+![](https://raw.githubusercontent.com/petermeissner/statsgrokse/master/README-plot_example_make-1.png)

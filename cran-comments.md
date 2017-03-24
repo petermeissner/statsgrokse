@@ -14,6 +14,21 @@
 
 
 
+
+## CRAN comments
+
+We get
+
+Package has a VignetteBuilder field but no prebuilt vignette index.
+
+Pls fix
+
+
+--> I excluded VignetteBuilder field from DESCRIPTION (there is no vignette)
+
+
+
+
 ## Reverse dependencies
 
 This is a new release, so there are no reverse dependencies.

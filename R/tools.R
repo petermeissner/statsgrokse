@@ -15,7 +15,6 @@ html <- function(url, ...){
 #'
 #' @export
 
-
 http_header <- function(){
   list(
     'user-agent' =

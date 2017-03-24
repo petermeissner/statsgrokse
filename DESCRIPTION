@@ -1,8 +1,7 @@
 Package: statsgrokse
-Title: R API Binding to Stats.grok.se Server
+Title: R 'API' Binding to Stats.grok.se Server
 Version: 0.1.3
 Date: 2017-03-20
-Author: Peter Meissner [aut, cre], R Core Team [ctb]
 Authors@R: c(
     person(
       given  = "Peter", 
@@ -35,5 +34,4 @@ Suggests:
     knitr
 BugReports: https://github.com/petermeissner/statsgrokse/issues
 URL: https://github.com/petermeissner/statsgrokse
-VignetteBuilder: knitr
 RoxygenNote: 6.0.1
